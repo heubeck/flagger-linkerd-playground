@@ -33,7 +33,7 @@ spec:
     readinessProbe:
       path: /.well-known/ready
     configuration:
-      ECHO_VALUE: Welcome to the kind side 👋
+      ECHO_VALUE: Be welcomed to the kind side 👋
     monitoring:
       serviceMonitor: true
       metricsPath: /metrics
