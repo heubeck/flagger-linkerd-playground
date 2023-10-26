@@ -1,0 +1,16 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flagger
+  namespace: flux-system
+spec:
+  interval: 5m
+  path: ./flagger
+  dependsOn:
+    - name: linkerd
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  timeout: 10m
