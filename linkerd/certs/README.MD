@@ -23,7 +23,7 @@ step certificate create identity.linkerd.cluster.local issuer.crt issuer.key --p
 
 ```
 # Create Secret holding identity issuer certificate
-kubectl create secret tls -n linkerd linkerd-identity-issuer --cert=issuer.crt --key=issuer.key -o yaml --dry-run=client > linkerd-identity-issuer.yaml
+kubectl create secret generic -n linkerd linkerd-identity-issuer --from-file=tls.crt=issuer.crt --from-file=tls.key=issuer.key --from-file=ca.crt=ca.crt -o yaml --dry-run=client > linkerd-identity-issuer.yaml
 ```
 
 ### Proxy injector
