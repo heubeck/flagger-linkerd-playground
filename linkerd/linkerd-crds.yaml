@@ -15,6 +15,6 @@ spec:
         name: linkerd-charts
         namespace: linkerd
   install:
-    crds: Create
+    crds: CreateReplace
   upgrade:
     crds: CreateReplace
