@@ -22,7 +22,7 @@ spec:
       externalCA: true
       # causes the chart to skip the certificate secret creation, as we created the identity-issuer certificate secret beforehand
       issuer:
-        schema: secret
+        scheme: kubernetes.io/tls
     proxyInjector:
       externalSecret: true
       caBundle: |

@@ -23,14 +23,14 @@ step certificate create identity.linkerd.cluster.local issuer.crt issuer.key --p
 
 ```
 # Create Secret holding identity issuer certificate
-kubectl create secret generic -n linkerd linkerd-identity-issuer --from-file=cert.pem=issuer.crt --from-file=key.pem=issuer.key -o yaml --dry-run=client > linkerd-identity-issuer.yaml
+kubectl create secret tls -n linkerd linkerd-identity-issuer --cert=issuer.crt --key=issuer.key -o yaml --dry-run=client > linkerd-identity-issuer.yaml
 ```
 
 ### Proxy injector
 
 ```
 # Proxy injector certificate and key
-step certificate create linkerd-proxy-injector.linkerd.svc injector.crt injector.key --profile leaf --not-after 438000h --no-password --insecure --ca ca.crt --ca-key ca.key
+step certificate create linkerd-proxy-injector.linkerd.svc injector.crt injector.key --kty=RSA --profile leaf --not-after 438000h --no-password --insecure --ca ca.crt --ca-key ca.key
 ```
 
 ```
@@ -42,7 +42,7 @@ kubectl create secret tls -n linkerd linkerd-proxy-injector-k8s-tls --cert=injec
 
 ```
 # Policy validator certificate and key
-step certificate create linkerd-policy-validator.linkerd.svc policy.crt policy.key --profile leaf --not-after 438000h --no-password --insecure --ca ca.crt --ca-key ca.key
+step certificate create linkerd-policy-validator.linkerd.svc policy.crt policy.key --kty=RSA --profile leaf --not-after 438000h --no-password --insecure --ca ca.crt --ca-key ca.key
 ```
 
 ```
@@ -54,7 +54,7 @@ kubectl create secret tls -n linkerd linkerd-policy-validator-k8s-tls --cert=pol
 
 ```
 # SP validator certificate and key
-step certificate create linkerd-sp-validator.linkerd.svc sp.crt sp.key --profile leaf --not-after 438000h --no-password --insecure --ca ca.crt --ca-key ca.key
+step certificate create linkerd-sp-validator.linkerd.svc sp.crt sp.key --kty=RSA --profile leaf --not-after 438000h --no-password --insecure --ca ca.crt --ca-key ca.key
 ```
 
 ```
