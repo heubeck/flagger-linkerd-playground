@@ -10,6 +10,6 @@ resources:
   - linkerd-sp-validator-k8s-tls.yaml
   - linkerd-charts.yaml
   - linkerd-crds.yaml
-  - linkerd-smi.yaml
   - linkerd-control-plane.yaml
+  - linkerd-smi.yaml
 #  - linkerd-tracing.yaml

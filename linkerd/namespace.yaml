@@ -10,3 +10,4 @@ metadata:
     config.linkerd.io/admission-webhooks: disabled
     linkerd.io/control-plane-ns: linkerd
     pod-security.kubernetes.io/enforce: privileged
+    linkerd.io/extension: smi
