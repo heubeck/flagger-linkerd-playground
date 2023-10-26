@@ -8,3 +8,13 @@ metadata:
 spec:
   interval: 120m
   url: https://helm.linkerd.io/stable
+---
+# https://github.com/linkerd/linkerd-smi/tree/main/charts/linkerd-smi
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: linkerd-smi-charts
+  namespace: linkerd
+spec:
+  interval: 120m
+  url: https://linkerd.github.io/linkerd-smi
