@@ -8,7 +8,7 @@ spec:
   interval: 5m
   path: ./linkerd
   dependsOn:
-    - name: infrastructure
+    - name: monitoring
   prune: false
   sourceRef:
     kind: GitRepository

@@ -2,13 +2,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: prometheus
+  name: monitoring
   namespace: flux-system
 spec:
   interval: 5m
-  path: ./prometheus
-  dependsOn:
-    - name: infrastructure
+  path: ./monitoring
   prune: false
   sourceRef:
     kind: GitRepository
@@ -19,3 +17,6 @@ spec:
       kind: HelmRelease
       name: prometheus-operator
       namespace: monitoring
+  postBuild:
+    substitute:
+      kubernetes_dashboard_version: "~6"

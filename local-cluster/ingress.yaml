@@ -2,14 +2,16 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: infrastructure
+  name: ingress
   namespace: flux-system
 spec:
   interval: 2m
+  dependsOn:
+    - name: linkerd
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: "./infrastructure"
+  path: "./ingress"
   prune: true
   timeout: 5m
   healthChecks:
@@ -20,4 +22,3 @@ spec:
   postBuild:
     substitute:
       ingress_nginx_version: "~4"
-      kubernetes_dashboard_version: "~6"

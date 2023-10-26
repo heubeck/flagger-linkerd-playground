@@ -65,3 +65,5 @@ spec:
         AKx6BJtpNjvnf+glC1wIUprnUMV7lVG54sVqclVSiDUUAiBVie2ITFRyYiwPzk+1
         wkih3wGo5fSbbwxxWNOwWYoM5Q==
         -----END CERTIFICATE-----
+    podMonitor:
+      enabled: true
